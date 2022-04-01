@@ -1,0 +1,103 @@
+package av2;
+
+public class Criptografia {
+	public static void main (String[] args) {
+		
+		//Este é um algoritmo de criptografia que usa o nome "gustavo" como chave
+		//A ideia é que a cada letra de uma string, ela seja trocada por outra somando a sua ordem no alfabeto com a letra da chave
+		//
+		
+		
+		int[] chave = {7,21,19,20,1,22,15};
+		
+		
+		//G U  S  T  A V  O
+		//7 21 19 20 1 22 15
+		
+		//a primeira letra da palavra, ela avançará 7 casas do alfabeto
+		//se for 'a'(1ª letra do alfabeto), será trocada por 'h'(1+7(g)8ª letra do alfabeto)
+		//se for 'l'(12ª letra do alfabeto), será trocada por 's' (12+7(g) 19ª letra do alfabeto)
+		
+		//a segunda letra da palavra, ela avançará 21 casas do alfabeto, assim sucessivamente
+		//se for b(2ª letra do alfabeto), será trocada por v (2+21(u)23)
+		
+		//contiuará até a sétima e última letra da chave
+		
+		//na oitava letra que será criptografada, a chave se repitirá, indo para a primeira letra, e assim sucessivamente
+		
+		String exemplo = "Programar";
+		
+		
+		System.out.println("Criptografando a palavra" + exemplo);
+		
+		String cripto = "";
+		
+		for (int i=0,j=0; i<exemplo.length();i++,j++) {
+			char c = exemplo.charAt(i);
+			if (i<8) {
+				c += chave[j];
+				System.out.println(c);
+				cripto += c;
+			}
+			else
+			{
+				j=0;
+			}
+		}
+		
+		System.out.println("Descriptografando a palavra" + cripto);
+		
+		String descripto = "";
+		for (int i=0,j=0; i<exemplo.length();i++,j++) {
+			char c = exemplo.charAt(i);
+			if (i<8) {
+				c -= chave[j];
+				System.out.println(c);
+				descripto += c;
+			}
+			else
+			{
+				j=0;
+			}
+		}
+		
+		System.out.println(descripto);
+		
+		//Para versão numérica
+		
+		String matricula = "191047830006";
+		
+		String matcripto ="";
+		
+		for (int i=0,j=0; i<matricula.length();i++,j++) {
+			char c = exemplo.charAt(i);
+			if (i<8) {
+				c += chave[j];
+				System.out.println(c);
+				matcripto += c;
+			}
+			else
+			{
+				j=0;
+			}
+		}
+		
+		System.out.println("Descriptografando" + matcripto);
+		
+		String matdescripto ="";
+		
+		for (int i=0,j=0; i<matricula.length();i++,j++) {
+			char c = exemplo.charAt(i);
+			if (i<8) {
+				c += chave[j];
+				System.out.println(c);
+				matdescripto += c;
+			}
+			else
+			{
+				j=0;
+			}
+		}
+		System.out.println(matdescripto);
+	}
+}
